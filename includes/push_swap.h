@@ -1,0 +1,21 @@
+#ifndef PUSH_SWAP_H
+# define PUSH_SWAP_H
+
+# include <unistd.h>
+# include <stdlib.h>
+# include <stdio.h>
+// # include "./libft/libft.h"
+ 
+typedef struct s_list
+{
+    int value; 
+    struct s_list *next;
+}   t_list; 
+
+
+long	ft_atoi(const char *s);
+char	**ft_split(char *s, char c);
+int ft_strlen(const char *str);
+int count_words(char *s, char c);
+
+#endif

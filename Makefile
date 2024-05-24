@@ -1,7 +1,9 @@
 NAME = push_swap
 
-SRC = src/push_swap.c
-
+SRC =	./src/main.c \
+		./src/utils.c \
+		./src/utils1.c \
+		
 CC = cc
 CFLAGS = -Werror -Wextra -Wall
 
@@ -10,7 +12,7 @@ all : $(NAME)
 OBJ = $(SRC:.c=.o)
 
 $(NAME) : $(OBJ)
-	$(CC) $(OBJ) -o $(NAME)
+	$(CC) $(OBJ) -o $(NAME)  
 
 %.o:%.c
 	$(CC) $(CFLAGS) -c $< -o $@
