@@ -44,7 +44,7 @@ t_list	*ft_lstnew(int data)
 
 int	main(int ac, char **av)
 {
-	t_list *list = NULL;
+	t_list *stack_a = NULL;
 	char **string;
 	int i = 0;
 	int nb = 0;
@@ -55,13 +55,14 @@ int	main(int ac, char **av)
 	while (string[i])
 	{
 		nb = ft_atoi(string[i]);
-		ft_lstadd_back(&list,  ft_lstnew(nb));
+		ft_lstadd_back(&stack_a,  ft_lstnew(nb));
 		i++;
 	}
-    while (list != NULL)
+	ft_sa(&stack_a);
+    while (stack_a != NULL)
     {
-        printf("%d\n", list->value);
-        list= list->next; 
+        printf("%d\n", stack_a->value);
+        stack_a = stack_a->next; 
     }
 	return (0);
 }
