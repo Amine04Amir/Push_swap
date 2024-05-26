@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mamir <mamir@student.42.fr>                +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/05/26 16:45:32 by mamir             #+#    #+#             */
+/*   Updated: 2024/05/26 17:04:34 by mamir            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../includes/push_swap.h"
 
 void ft_error()
@@ -58,13 +70,29 @@ int	main(int ac, char **av)
 		ft_lstadd_back(&stack_a,  ft_lstnew(nb));
 		i++;
 	}
-	ft_sa(&stack_a);
-	ft_ra(&stack_a);
-	ft_rra(&stack_a);
-    // while (stack_a != NULL)
-    // {
-    //     printf("%d\n", stack_a->value);
-    //     stack_a = stack_a->next; 
-    // }
+	// ft_sa(&stack_a);
+	// ft_ra(&stack_a);
+	// ft_rra(&stack_a);
+	t_list *stack_b = NULL;
+	t_list *tmp = stack_a;
+	while (tmp != NULL)
+	{
+		printf("%d\n", tmp->value);
+		tmp = tmp->next;
+	}
+	ft_pa(&stack_a, &stack_b);
+	ft_pa(&stack_a, &stack_b);
+	ft_pa(&stack_a, &stack_b);
+	printf("stack_a:\n");
+	while (stack_a != NULL)
+	{
+		printf("%d\n", stack_a->value);
+		stack_a = stack_a->next;
+	}
+	while (stack_b != NULL)
+	{
+		printf("stack_b:\n%d\n", stack_b->value);
+		stack_b = stack_b->next;
+	}
 	return (0);
 }

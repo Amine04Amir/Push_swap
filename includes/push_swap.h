@@ -30,7 +30,7 @@ void ft_ra(t_list **stack_a);
 void ft_rb(t_list **stack_b);
 void ft_rra(t_list **stack_a);
 void ft_rrb(t_list **stack_b);
-
+void ft_pa(t_list **stack_a, t_list **stack_b);
 
 
 #endif
