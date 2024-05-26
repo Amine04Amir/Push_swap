@@ -36,7 +36,7 @@ t_list	*ft_lstnew(int data)
 
 	node = (t_list *)malloc(sizeof(t_list));
     if (node == NULL)
-        return NULL;
+		return NULL;
 	node->value = data;
 	node->next = NULL;
     return node;
@@ -59,6 +59,7 @@ int	main(int ac, char **av)
 		i++;
 	}
 	ft_sa(&stack_a);
+	ft_ra(&stack_a);
     while (stack_a != NULL)
     {
         printf("%d\n", stack_a->value);
