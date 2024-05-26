@@ -26,6 +26,8 @@ void ft_ra(t_list **stack_a)
 {
     t_list *last;
 
+    if(*stack_a == NULL || (*stack_a)->next == NULL)
+        return;
     last = ft_lstlast(*stack_a);
     last->next = *stack_a;
     *stack_a = (*stack_a)->next;
@@ -33,22 +35,15 @@ void ft_ra(t_list **stack_a)
     write(1, "ra\n", 3);
 }
 
-void ft_rra(t_list **stack_a)
+void ft_rb(t_list **stack_b)
 {
-    t_list *last = *stack_a;
-    t_list *before_last = NULL;
+    t_list *last;
 
-    if (*stack_a == NULL || (*stack_a)->next == NULL)
+    if(*stack_b == NULL || (*stack_b)->next == NULL)
         return;
-    while (last->next != NULL)
-    {
-        before_last = last;
-        last = last->next;
-    }
-    before_last->next = NULL;
-    last->next = *stack_a;
-    *stack_a = last;
-    write(1, "rra\n", 3);
+    last = ft_lstlast(*stack_b);
+    last->next = *stack_b;
+    *stack_b = (*stack_b)->next;
+    last->next->next = NULL;
+    write(1, "rb\n", 3);
 }
-
-
