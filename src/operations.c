@@ -8,6 +8,7 @@ void ft_sa(t_list **stack_a)
     (*stack_a)->next = tmp->next;
     tmp->next = *stack_a;
     *stack_a = tmp;
+    write(1, "sa\n", 3);
 }
 
 void ft_sb(t_list **stack_b)
@@ -18,6 +19,7 @@ void ft_sb(t_list **stack_b)
     (*stack_b)->next = tmp->next;
     tmp->next = *stack_b;
     *stack_b = tmp;
+    write(1, "sb\n", 3);
 }
 
 void ft_ra(t_list **stack_a)
@@ -28,7 +30,7 @@ void ft_ra(t_list **stack_a)
     last->next = *stack_a;
     *stack_a = (*stack_a)->next;
     last->next->next = NULL;
-    
+    write(1, "ra\n", 3);
 }
 
 void ft_rra(t_list **stack_a)
@@ -46,5 +48,7 @@ void ft_rra(t_list **stack_a)
     before_last->next = NULL;
     last->next = *stack_a;
     *stack_a = last;
+    write(1, "rra\n", 3);
 }
+
 
