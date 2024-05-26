@@ -13,11 +13,21 @@ typedef struct s_list
 }   t_list; 
 
 
+t_list	*ft_lstlast(t_list *list);
+
+
+
 long	ft_atoi(const char *s);
 char	**ft_split(char *s, char c);
 int ft_strlen(const char *str);
 int count_words(char *s, char c);
+
+
+
 void ft_sa(t_list **stack_a);
 void ft_ra(t_list **stack_a);
-t_list	*ft_lstlast(t_list *list);
+void ft_rra(t_list **stack_a);
+
+
+
 #endif

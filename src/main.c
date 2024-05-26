@@ -60,6 +60,7 @@ int	main(int ac, char **av)
 	}
 	ft_sa(&stack_a);
 	ft_ra(&stack_a);
+	ft_rra(&stack_a);
     while (stack_a != NULL)
     {
         printf("%d\n", stack_a->value);
