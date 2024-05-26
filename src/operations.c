@@ -37,6 +37,5 @@ void ft_rra(t_list **stack_a)
     t_list *before_last;
     
     last = ft_lstlast(*stack_a);
-    while (stack_a->next != NULL)
-        before_last = stack_a->next;
+    
 }
