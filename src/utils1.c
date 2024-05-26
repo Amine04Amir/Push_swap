@@ -6,7 +6,7 @@
 /*   By: mamir <mamir@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/26 16:46:04 by mamir             #+#    #+#             */
-/*   Updated: 2024/05/26 16:46:05 by mamir            ###   ########.fr       */
+/*   Updated: 2024/05/26 17:21:52 by mamir            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,4 +62,10 @@ int	count_words(char *s, char c)
 			s++;
 	}
 	return (i);
+}
+
+void ft_error()
+{
+	write(2, "Error!\n", 8);
+	exit(1);
 }
