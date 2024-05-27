@@ -6,7 +6,7 @@
 /*   By: mamir <mamir@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/26 16:45:32 by mamir             #+#    #+#             */
-/*   Updated: 2024/05/27 11:07:23 by mamir            ###   ########.fr       */
+/*   Updated: 2024/05/27 11:28:54 by mamir            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,21 +21,21 @@ void ft_sort_three(t_list **stack_a)
 	A = *stack_a;
     B = (*stack_a)->next;
     C = (*stack_a)->next->next;
-	if (A->value > B->value && B->value < C->value && A->value < C->value) /*case ;1*/
+	if (A->value > B->value && B->value < C->value && A->value < C->value)
         ft_sa(stack_a);
-    else if (A->value > B->value && B->value > C->value) /*case ;2*/
+    else if (A->value > B->value && B->value > C->value)
 	{
         ft_sa(stack_a);
         ft_rra(stack_a);
     }
-    else if (A->value > B->value && B->value < C->value && A->value > C->value) /*case ;3*/
+    else if (A->value > B->value && B->value < C->value && A->value > C->value)
         ft_ra(stack_a);
-    else if (A->value < B->value && B->value > C->value && A->value < C->value) /*case ;4*/
+    else if (A->value < B->value && B->value > C->value && A->value < C->value)
 	{
         ft_sa(stack_a);
         ft_ra(stack_a);
     }
-    else if (A->value < B->value && B->value > C->value && A->value > C->value) /*case ;5*/
+    else if (A->value < B->value && B->value > C->value && A->value > C->value)
         ft_rra(stack_a);
 }
 
