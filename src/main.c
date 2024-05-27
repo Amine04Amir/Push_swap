@@ -6,7 +6,7 @@
 /*   By: mamir <mamir@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/26 16:45:32 by mamir             #+#    #+#             */
-/*   Updated: 2024/05/27 11:53:25 by mamir            ###   ########.fr       */
+/*   Updated: 2024/05/27 13:35:41 by mamir            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,38 +14,44 @@
 
 void	ft_sort_three(t_list **stack_a)
 {
-	t_list	*A;
-	t_list	*B;
-	t_list	*C;
-
-	A = *stack_a;
-	B = (*stack_a)->next;
-	C = (*stack_a)->next->next;
-	if (A->value > B->value && B->value < C->value && A->value < C->value)
+	if ((*stack_a)->value > (*stack_a)->next->value
+		&& (*stack_a)->next->value < (*stack_a)->next->next->value
+		&& (*stack_a)->value < (*stack_a)->next->next->value)
 		ft_sa(stack_a);
-	else if (A->value > B->value && B->value > C->value)
+	else if ((*stack_a)->value > (*stack_a)->next->value
+		&& (*stack_a)->next->value > (*stack_a)->next->next->value)
 	{
 		ft_sa(stack_a);
 		ft_rra(stack_a);
 	}
-	else if (A->value > B->value && B->value < C->value && A->value > C->value)
+	else if ((*stack_a)->value > (*stack_a)->next->value
+		&& (*stack_a)->next->value < (*stack_a)->next->next->value
+		&& (*stack_a)->value > (*stack_a)->next->next->value)
 		ft_ra(stack_a);
-	else if (A->value < B->value && B->value > C->value && A->value < C->value)
+	else if ((*stack_a)->value < (*stack_a)->next->value
+		&& (*stack_a)->next->value > (*stack_a)->next->next->value
+		&& (*stack_a)->value < (*stack_a)->next->next->value)
 	{
 		ft_sa(stack_a);
 		ft_ra(stack_a);
 	}
-	else if (A->value < B->value && B->value > C->value && A->value > C->value)
+	else if ((*stack_a)->value < (*stack_a)->next->value
+		&& (*stack_a)->next->value > (*stack_a)->next->next->value
+		&& (*stack_a)->value > (*stack_a)->next->next->value)
 		ft_rra(stack_a);
 }
 
 int	main(int ac, char **av)
 {
-	t_list *stack_a = NULL;
-	char **string;
-	int i = 0;
-	int nb = 0;
+	t_list	*stack_a;
+	char	**string;
+	int		i;
+	int		nb;
+	t_list	*tmp;
 
+	stack_a = NULL;
+	i = 0;
+	nb = 0;
 	if (ac != 2)
 		ft_error();
 	string = ft_split(av[1], ' ');
@@ -56,7 +62,7 @@ int	main(int ac, char **av)
 		i++;
 	}
 	ft_sort_three(&stack_a);
-	t_list *tmp = stack_a;
+	tmp = stack_a;
 	printf("stack:\n");
 	while (tmp != NULL)
 	{
