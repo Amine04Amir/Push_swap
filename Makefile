@@ -1,8 +1,10 @@
 NAME = push_swap
 
 SRC =	./src/main.c \
-		./src/utils.c ./src/utils1.c ./src/lst.c \
+		./src/utils.c ./src/utils1.c \
+		./src/lst.c \
 		./src/operations.c ./src/operations1.c \
+		
 		
 CC = cc
 CFLAGS = -Werror -Wextra -Wall

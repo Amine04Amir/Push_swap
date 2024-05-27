@@ -6,7 +6,7 @@
 /*   By: mamir <mamir@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/26 16:45:55 by mamir             #+#    #+#             */
-/*   Updated: 2024/05/26 16:45:56 by mamir            ###   ########.fr       */
+/*   Updated: 2024/05/27 10:59:08 by mamir            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ void ft_sa(t_list **stack_a)
 {
     t_list *tmp;
     
+    if (*stack_a == NULL || (*stack_a)->next == NULL)
+        return;
     tmp = (*stack_a)->next;
     (*stack_a)->next = tmp->next;
     tmp->next = *stack_a;
@@ -27,6 +29,8 @@ void ft_sb(t_list **stack_b)
 {
     t_list *tmp;
     
+    if (*stack_b == NULL || (*stack_b)->next == NULL)
+        return;
     tmp = (*stack_b)->next;
     (*stack_b)->next = tmp->next;
     tmp->next = *stack_b;
