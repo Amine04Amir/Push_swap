@@ -29,10 +29,9 @@ t_list	*ft_lstnew(int data)
 	t_list	*node;
 
 	node = (t_list *)malloc(sizeof(t_list));
-    if (node == NULL)
-		return NULL;
+	if (node == NULL)
+		return (NULL);
 	node->value = data;
 	node->next = NULL;
-    return node;
+	return (node);
 }
-

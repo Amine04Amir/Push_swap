@@ -91,7 +91,7 @@ static char	**ft_help(char **tab, const char *s, char c)
 
 char	**ft_split(char *s, char c)
 {
-	char	**tab;
+	char **tab;
 
 	if (!s)
 		return (NULL);

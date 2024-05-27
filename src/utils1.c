@@ -12,14 +12,14 @@
 
 #include "../includes/push_swap.h"
 
-int ft_strlen(const char *str)
+int	ft_strlen(const char *str)
 {
-    size_t i;
+	size_t	i;
 
-    i = 0;
-    while (str[i])
-        i++;
-    return (i);
+	i = 0;
+	while (str[i])
+		i++;
+	return (i);
 }
 
 long	ft_atoi(const char *s)
@@ -64,7 +64,7 @@ int	count_words(char *s, char c)
 	return (i);
 }
 
-void ft_error()
+void	ft_error(void)
 {
 	write(2, "Error!\n", 8);
 	exit(1);
