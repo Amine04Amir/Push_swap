@@ -6,7 +6,7 @@
 /*   By: mamir <mamir@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/26 16:45:32 by mamir             #+#    #+#             */
-/*   Updated: 2024/05/27 13:37:58 by mamir            ###   ########.fr       */
+/*   Updated: 2024/05/28 23:00:26 by mamir            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,12 +44,14 @@ void	ft_sort_three(t_list **stack_a)
 int	main(int ac, char **av)
 {
 	t_list	*stack_a;
+	t_list *stack_b;
 	char	**string;
 	int		i;
 	int		nb;
-	t_list	*tmp;
 
 	stack_a = NULL;
+	stack_b = NULL;
+	
 	i = 0;
 	nb = 0;
 	if (ac != 2)
@@ -61,13 +63,12 @@ int	main(int ac, char **av)
 		ft_lstadd_back(&stack_a, ft_lstnew(nb));
 		i++;
 	}
-	ft_sort_three(&stack_a);
-	tmp = stack_a;
-	printf("stack:\n");
-	while (tmp != NULL)
-	{
-		printf("%d\n", tmp->value);
-		tmp = tmp->next;
-	}
-	
+	// printf("stack:\n");
+	ft_sort_three(&stack_a);	
+	// t_list *tmp = stack_a;
+	// while(tmp != NULL)
+	// {
+	// 	printf("%d\n", tmp->value);
+	// 	tmp = tmp->next;
+	// }
 }
