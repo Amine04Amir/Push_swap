@@ -32,4 +32,6 @@ void				ft_pb(t_list **stack_a, t_list **stack_b);
 
 void				ft_sort_three(t_list **stack_a);
 
+void parse_args(int ac, char **av, t_list **stack_a);
+
 #endif

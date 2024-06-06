@@ -6,7 +6,7 @@
 /*   By: mamir <mamir@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/26 16:45:32 by mamir             #+#    #+#             */
-/*   Updated: 2024/05/28 23:00:26 by mamir            ###   ########.fr       */
+/*   Updated: 2024/06/06 22:27:01 by mamir            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,32 +41,49 @@ void	ft_sort_three(t_list **stack_a)
 		ft_rra(stack_a);
 }
 
+void parse_args(int ac, char **av, t_list **stack_a)
+{
+	int i;
+	int nums;
+	char **string;
+
+	if (ac == 2)
+	{
+		i = 0;
+		string = ft_split(av[1], ' ');
+		while (string[i])
+		{
+			nums = ft_atoi(string[i]);
+			ft_lstadd_back(stack_a, ft_lstnew(nums));
+			i++;
+		}
+	}
+	else
+	{
+		i = 1;
+		while (i < ac)
+		{
+			nums = ft_atoi(av[i]);
+			ft_lstadd_back(stack_a, ft_lstnew(nums));
+			i++;
+		}
+	}
+}
+
 int	main(int ac, char **av)
 {
 	t_list	*stack_a;
 	t_list *stack_b;
-	char	**string;
-	int		i;
-	int		nb;
 
 	stack_a = NULL;
 	stack_b = NULL;
 	
-	i = 0;
-	nb = 0;
-	if (ac != 2)
+	if (ac < 2)
 		ft_error();
-	string = ft_split(av[1], ' ');
-	while (string[i])
-	{
-		nb = ft_atoi(string[i]);
-		ft_lstadd_back(&stack_a, ft_lstnew(nb));
-		i++;
-	}
-	// printf("stack:\n");
-	ft_sort_three(&stack_a);	
+	parse_args(ac , av, &stack_a);
+	ft_sort_three(&stack_a);
 	// t_list *tmp = stack_a;
-	// while(tmp != NULL)
+	// while (tmp != NULL)
 	// {
 	// 	printf("%d\n", tmp->value);
 	// 	tmp = tmp->next;
