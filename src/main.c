@@ -6,7 +6,7 @@
 /*   By: mamir <mamir@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/26 16:45:32 by mamir             #+#    #+#             */
-/*   Updated: 2024/06/07 02:26:40 by mamir            ###   ########.fr       */
+/*   Updated: 2024/06/07 02:31:27 by mamir            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,35 +43,46 @@ void	ft_sort_three(t_list **stack_a)
 
 void parse_args(int ac, char **av, t_list **stack_a)
 {
+	if (ac == 2)
+		parse_string(av[1], stack_a);
+	else
+		parse_arguments(ac, av, stack_a);
+}
+
+void parse_arguments(int ac, char **av, t_list **stack_a)
+{
+	int i;
+	int nums;
+
+	i = 1;
+	while (i < ac)
+	{
+		nums = ft_atoi(av[i]);
+		if (check_duplicates(*stack_a, nums))
+			ft_error("Duplicated number");
+		ft_lstadd_back(stack_a, ft_lstnew(nums));
+		i++;
+	}
+}
+
+void parse_string(char *str, t_list **stack_a)
+{
 	int i;
 	int nums;
 	char **string;
 
-	if (ac == 2)
+	string = ft_split(str, ' ');
+	i = 0;
+	while (string[i])
 	{
-		i = 0;
-		string = ft_split(av[1], ' ');
-		while (string[i])
-		{
-			nums = ft_atoi(string[i]);
-			if (check_duplicates(*stack_a, nums))
-				ft_error("duplicated number\n");
-			ft_lstadd_back(stack_a, ft_lstnew(nums));
-			i++;
-		}
+		nums = ft_atoi(string[i]);
+		if (check_duplicates(*stack_a, nums))
+			ft_error("Duplicated number");
+		ft_lstadd_back(stack_a, ft_lstnew(nums));
+		free(string[i]);
+		i++;
 	}
-	else
-	{
-		i = 1;
-		while (i < ac)
-		{
-			nums = ft_atoi(av[i]);
-			if (check_duplicates(*stack_a, nums))
-				ft_error("duplicated number\n");
-			ft_lstadd_back(stack_a, ft_lstnew(nums));
-			i++;
-		}
-	}
+	free(string);
 }
 
 int check_duplicates(t_list *stack_a, int num)
