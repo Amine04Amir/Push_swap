@@ -33,8 +33,8 @@ void				ft_pb(t_list **stack_a, t_list **stack_b);
 void				ft_sort_three(t_list **stack_a);
 
 void 				parse_args(int ac, char **av, t_list **stack_a);
-int					check_duplicates(t_list *stack_a, int num);
 void 				parse_arguments(int ac, char **av, t_list **stack_a);
 void 				parse_string(char *str, t_list **stack_a);
+int					check_duplicates(t_list *stack_a, int num);
 
 #endif
