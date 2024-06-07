@@ -6,7 +6,7 @@
 /*   By: mamir <mamir@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/26 16:45:32 by mamir             #+#    #+#             */
-/*   Updated: 2024/06/06 22:27:01 by mamir            ###   ########.fr       */
+/*   Updated: 2024/06/07 02:26:40 by mamir            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,8 @@ void parse_args(int ac, char **av, t_list **stack_a)
 		while (string[i])
 		{
 			nums = ft_atoi(string[i]);
+			if (check_duplicates(*stack_a, nums))
+				ft_error("duplicated number\n");
 			ft_lstadd_back(stack_a, ft_lstnew(nums));
 			i++;
 		}
@@ -64,10 +66,26 @@ void parse_args(int ac, char **av, t_list **stack_a)
 		while (i < ac)
 		{
 			nums = ft_atoi(av[i]);
+			if (check_duplicates(*stack_a, nums))
+				ft_error("duplicated number\n");
 			ft_lstadd_back(stack_a, ft_lstnew(nums));
 			i++;
 		}
 	}
+}
+
+int check_duplicates(t_list *stack_a, int num)
+{
+	t_list *head;
+
+	head = stack_a;
+	while (head != NULL)
+	{
+		if (head->value == num)
+			return 1;
+		head = head->next;
+	}
+	return 0;
 }
 
 int	main(int ac, char **av)
@@ -79,7 +97,7 @@ int	main(int ac, char **av)
 	stack_b = NULL;
 	
 	if (ac < 2)
-		ft_error();
+		ft_error("no args\n");
 	parse_args(ac , av, &stack_a);
 	ft_sort_three(&stack_a);
 	// t_list *tmp = stack_a;

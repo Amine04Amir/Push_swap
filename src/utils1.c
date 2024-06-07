@@ -6,7 +6,7 @@
 /*   By: mamir <mamir@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/26 16:46:04 by mamir             #+#    #+#             */
-/*   Updated: 2024/05/26 17:21:52 by mamir            ###   ########.fr       */
+/*   Updated: 2024/06/07 02:16:31 by mamir            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ long	ft_atoi(const char *s)
 	i = 0;
 	sign = 1;
 	r = 0;
-	while (s[i] >= '\t' && s[i] <= '\r' && s[i] != ' ')
+	while (s[i] >= 9 && s[i] <= 13 && s[i] != ' ')
 		i++;
 	if (s[i] == '+' || s[i] == '-')
 	{
@@ -39,11 +39,16 @@ long	ft_atoi(const char *s)
 			sign *= -1;
 		i++;
 	}
-	while (s[i] >= '0' && s[i] <= '9')
+	
+	while (s[i])
 	{
+		if (!(s[i] >= '0' && s[i] <= '9'))
+			ft_error("not a number\n");
 		r = r * 10 + (s[i] - '0');
 		i++;
 	}
+	if (r > 2147483647 || r < -2147483648)
+		ft_error("very long numbers\n");
 	return (r * sign);
 }
 
@@ -64,8 +69,13 @@ int	count_words(char *s, char c)
 	return (i);
 }
 
-void	ft_error(void)
+void	ft_error(char *str)
 {
 	write(2, "Error!\n", 8);
+	while (*str)
+	{
+		write(1, &*str, 1);
+		str++;
+	}	
 	exit(1);
 }
