@@ -14,27 +14,37 @@ typedef struct s_list
 t_list				*ft_lstlast(t_list *list);
 t_list				*ft_lstnew(int data);
 void				ft_lstadd_back(t_list **list, t_list *new);
-void				ft_error(char *str);
+int 				ft_lstsize(t_list *list);
+void 				free_list(t_list *stack);
 
 long				ft_atoi(const char *s);
 char				**ft_split(char *s, char c);
 int					ft_strlen(const char *str);
 int					count_words(char *s, char c);
+void 				ft_putstr(char *str);
 
-void				ft_sa(t_list **stack_a);
-void				ft_sb(t_list **stack_b);
-void				ft_ra(t_list **stack_a);
-void				ft_rb(t_list **stack_b);
-void				ft_rra(t_list **stack_a);
-void				ft_rrb(t_list **stack_b);
+void				ft_sa(t_list **stack, char *str);
+void				ft_ra(t_list **stack, char *str);
+void				ft_sb(t_list **stack, char *str);
+void				ft_rb(t_list **stack, char *str);
+void				ft_rra(t_list **stack, char *str);
+void				ft_rrb(t_list **stack, char *str);
 void				ft_pa(t_list **stack_a, t_list **stack_b);
 void				ft_pb(t_list **stack_a, t_list **stack_b);
+void 				ft_ss(t_list **stack_a, t_list **stack_b);
+void 				ft_rr(t_list **stack_a, t_list **stack_b);
+void 				ft_rrr(t_list **stack_a, t_list **stack_b);
 
 void				ft_sort_three(t_list **stack_a);
+void 				stack_to_array(t_list *stack, int *arr);
+void 				array_to_stack(t_list **stack , int *array, int size);
+void 				sort_stack(t_list **stack);
+void 				insertion_sort(int *array, int size);
 
 void 				parse_args(int ac, char **av, t_list **stack_a);
 void 				parse_arguments(int ac, char **av, t_list **stack_a);
 void 				parse_string(char *str, t_list **stack_a);
 int					check_duplicates(t_list *stack_a, int num);
+void				ft_error(char *str);
 
 #endif

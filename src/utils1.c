@@ -6,7 +6,7 @@
 /*   By: mamir <mamir@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/26 16:46:04 by mamir             #+#    #+#             */
-/*   Updated: 2024/06/07 02:16:31 by mamir            ###   ########.fr       */
+/*   Updated: 2024/06/08 19:07:14 by mamir            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,10 +72,18 @@ int	count_words(char *s, char c)
 void	ft_error(char *str)
 {
 	write(2, "Error!\n", 8);
-	while (*str)
-	{
-		write(1, &*str, 1);
-		str++;
-	}	
+	ft_putstr(str);
 	exit(1);
+}
+
+void ft_putstr(char *str)
+{	
+	int i;
+
+	i = 0;
+	while (str[i])
+	{
+		write(1, &str[i], 1);
+		i++;
+	}
 }
