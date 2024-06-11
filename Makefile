@@ -3,7 +3,7 @@ NAME = push_swap
 SRC =	./src/main.c \
 		./src/utils.c ./src/utils1.c \
 		./src/lst.c \
-		./src/operations.c ./src/operations1.c \
+		./src/moves.c ./src/moves1.c ./src/moves2.c \
 		./src/parsing.c \
 		
 		

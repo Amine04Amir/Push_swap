@@ -6,13 +6,13 @@
 /*   By: mamir <mamir@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/26 16:45:32 by mamir             #+#    #+#             */
-/*   Updated: 2024/06/08 19:08:36 by mamir            ###   ########.fr       */
+/*   Updated: 2024/06/09 12:40:05 by mamir            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void ft_sort_three(t_list **stack_a)
+void	sort_three(t_list **stack_a)
 {
 	int a = (*stack_a)->value;
     int b = (*stack_a)->next->value;
@@ -20,90 +20,88 @@ void ft_sort_three(t_list **stack_a)
 
 	if (a > b && b > c)
 	{
-		ft_sa(stack_a, "sa\n");
-		ft_rra(stack_a, "rra\n");
+		sa(stack_a);
+		rra(stack_a);
 	}
 	else if (a > b && a < c)
-		ft_sa(stack_a, "sa\n");
+		sa(stack_a);
 	else if (a > c && b < c)
-		ft_ra(stack_a, "ra\n");
+		ra(stack_a);
 	else if (a < c && b > c)
 	{
-		ft_sa(stack_a, "sa\n");
-		ft_ra(stack_a, "ra\n");
+		sa(stack_a);
+		ra(stack_a);
 	}
 	else if (a < b && b > c)
-		ft_rra(stack_a, "rra\n");
+		rra(stack_a);
 }
 
-void stack_to_array(t_list *stack, int *arr)
+void find_smallest(t_list **stack)
 {
-	int i;
+    t_list *current;
+    int smallest;
+    int i;
+    int smallest_index;
+    int size;
 
-	i = 0;
-	while (stack != NULL)
-	{
-		arr[i++] = stack->value;
-		stack = stack->next;
-	}
+    if (!stack || !*stack)
+        return;
+
+    size = ft_lstsize(*stack);
+    current = *stack;
+    smallest = current->value;
+    smallest_index = 0;
+    i = 0;
+
+    while (current)
+    {
+        if (current->value < smallest)
+        {
+            smallest = current->value;
+            smallest_index = i;
+        }
+        current = current->next;
+        i++;
+    }
+
+    if (smallest_index <= size / 2)
+    {
+        while (smallest_index--)
+        {
+            ra(stack);
+        }
+    }
+    else
+    {
+        smallest_index = size - smallest_index;
+        while (smallest_index--)
+        {
+            rra(stack);
+        }
+    }
 }
 
-void array_to_stack(t_list **stack , int *array, int size)
+void	sort_four(t_list **stack_a, t_list **stack_b)
 {
-	int i;
+	find_smallest(stack_a);
+	pb(stack_a, stack_b);
+	sort_three(stack_a);
+	pa(stack_a, stack_b);
+}	
 
-	i = 0;
-	while (i < size)
-	{
-		ft_lstadd_back(stack, ft_lstnew(array[i]));
-		i++;
-	}
-}
-void sort_stack(t_list **stack)
+void sort_five(t_list **stack_a, t_list **stack_b)
 {
-	int size;
-	int *arr;
-	
-	size = ft_lstsize(*stack);
-	arr = (int *)malloc(size * sizeof(int));
-	if (!arr)
-		ft_error("malloc fail!\n");
-	stack_to_array(*stack, arr);
-	insertion_sort(arr, size);
-	free_list(*stack);
-	*stack = NULL;
-	array_to_stack(stack, arr, size);
-	free(arr);
-}
-
-void insertion_sort(int *array, int size)
-{
-	int i;
-	int j;
-	int key;
-	
-	i = 1;
-	while (i < size)
-	{
-		key = array[i];
-		j = i - 1;
-		while (j >= 0 && array[j] > key)
-		{
-			array[j + 1] = array[j];
-			j = j - 1;
-		}
-		array[j + 1] = key;
-		i++;
-	}
-	
+	find_smallest(stack_a);
+	pb(stack_a, stack_b);
+	sort_four(stack_a, stack_b);
+	pa(stack_a, stack_b);
 }
 
 int	main(int ac, char **av)
 {
 	t_list	*stack_a;
 	t_list *stack_b;
-	// int size = 0;
-	// int *array;
+	int *array;
 
 	stack_a = NULL;
 	stack_b = NULL;
@@ -111,17 +109,17 @@ int	main(int ac, char **av)
 	if (ac < 2)
 		ft_error("no args\n");
 	parse_args(ac , av, &stack_a);
-	// size = ft_lstsize(stack_a);
-	// array = malloc(sizeof(int) * (size + 1)); 
-	// if (size == 2 && stack_a->value > stack_a->next->value)
-	// 	ft_sa(&stack_a, "sa\n");
-	// if (size > 2)
-	// 	ft_sort_three(&stack_a);
-	ft_sa(&stack_a, "sa\n");
-	ft_ra(&stack_a, "ra\n");
-	printf("--------\n");
+	array = malloc(sizeof(int) * (ft_lstsize(stack_a) + 1)); 
+	if (ft_lstsize(stack_a) == 2 && stack_a->value > stack_a->next->value)
+		sa(&stack_a);
+	else if (ft_lstsize(stack_a) == 3)
+		sort_three(&stack_a);
+	else if (ft_lstsize(stack_a) == 4)
+		sort_four(&stack_a, &stack_b);
+	else if (ft_lstsize(stack_a) == 5)
+		sort_five(&stack_a, &stack_a);
 	t_list *tmp = stack_a;
-	// printf("a\n");
+	printf("-----------\n");
 	while (tmp != NULL)
 	{
 		printf("%d\n", tmp->value);

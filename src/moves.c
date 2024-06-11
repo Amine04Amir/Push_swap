@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   operations.c                                       :+:      :+:    :+:   */
+/*   moves.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mamir <mamir@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/26 16:45:55 by mamir             #+#    #+#             */
-/*   Updated: 2024/06/08 21:51:48 by mamir            ###   ########.fr       */
+/*   Updated: 2024/06/08 23:34:20 by mamir            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,36 +55,28 @@ void	reverse_rotate(t_list **stack)
 	*stack = last;
 }
 
-void ss(t_list **stack_a, t_list **stack_b)
+void	pa(t_list **stack_a, t_list **stack_b)
 {
-	sa(stack_a);
-	sb(stack_b);
+	t_list *tmp;
+
+	if (*stack_b == NULL)
+		return ;
+	tmp = *stack_b;
+	*stack_b = (*stack_b)->next;
+	tmp->next = *stack_a;
+	*stack_a = tmp;
+	write(1, "pa\n", 3);
 }
 
-void ft_rr(t_list **stack_a, t_list **stack_b)
+void	pb(t_list **stack_a, t_list **stack_b)
 {
-	ra(stack_a);
-	rb(stack_b);
-}
+	t_list	*tmp;
 
-void sa(t_list **stack_a)
-{
-	swap(stack_a);
-	write(1, "sa\n", 3);
-}
-
-void	sb(t_list **stack_b)
-{
-	swap(stack_b);
-	write(1, "sb\n", 3);
-}
-void ra(t_list **stack_a)
-{
-	rotate(stack_a);
-	write(1, "ra\n", 3);
-}
-void	rb(t_list **stack_b)
-{
-	rotate(stack_b);
-	write(1, "rb\n", 3);
+	if (*stack_a == NULL)
+		return ;
+	tmp = *stack_a;
+	*stack_a = (*stack_a)->next;
+	tmp->next = *stack_b;
+	*stack_b = tmp;
+	write(1, "pb\n", 3);
 }
