@@ -6,7 +6,7 @@
 /*   By: mamir <mamir@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/26 16:45:32 by mamir             #+#    #+#             */
-/*   Updated: 2024/06/09 12:40:05 by mamir            ###   ########.fr       */
+/*   Updated: 2024/07/11 04:14:42 by mamir            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,65 +36,39 @@ void	sort_three(t_list **stack_a)
 		rra(stack_a);
 }
 
-void find_smallest(t_list **stack)
+int is_sorted(t_list *stack)
 {
-    t_list *current;
-    int smallest;
-    int i;
-    int smallest_index;
-    int size;
-
-    if (!stack || !*stack)
-        return;
-
-    size = ft_lstsize(*stack);
-    current = *stack;
-    smallest = current->value;
-    smallest_index = 0;
-    i = 0;
-
-    while (current)
-    {
-        if (current->value < smallest)
-        {
-            smallest = current->value;
-            smallest_index = i;
-        }
-        current = current->next;
-        i++;
-    }
-
-    if (smallest_index <= size / 2)
-    {
-        while (smallest_index--)
-        {
-            ra(stack);
-        }
-    }
-    else
-    {
-        smallest_index = size - smallest_index;
-        while (smallest_index--)
-        {
-            rra(stack);
-        }
-    }
+	if (!stack)
+		return (1);
+	while (stack->next)
+	{
+		if (stack->value > stack->next->value)
+			return 0;
+		stack = stack->next;
+	}
+	return 1;
 }
 
-void	sort_four(t_list **stack_a, t_list **stack_b)
+void find_smallest_and_second_smallest(t_list *stack)
 {
-	find_smallest(stack_a);
-	pb(stack_a, stack_b);
-	sort_three(stack_a);
-	pa(stack_a, stack_b);
-}	
-
-void sort_five(t_list **stack_a, t_list **stack_b)
-{
-	find_smallest(stack_a);
-	pb(stack_a, stack_b);
-	sort_four(stack_a, stack_b);
-	pa(stack_a, stack_b);
+	int smallest_value = stack->value;
+	int second_smallest_value = INT_MAX;
+	t_list *tmp = stack;
+	
+	while (tmp != NULL)
+	{
+		if (tmp->value < smallest_value)
+			smallest_value = tmp->value;
+		tmp = tmp->next;
+	}
+	while (stack != NULL)
+	{
+		if (stack->value > smallest_value && stack->value < second_smallest_value)
+			second_smallest_value = stack->value;
+		stack = stack->next;
+	}
+	printf("smallest: %d\n", smallest_value);
+	printf("second smallest: %d\n", second_smallest_value);
 }
 
 int	main(int ac, char **av)
@@ -109,15 +83,17 @@ int	main(int ac, char **av)
 	if (ac < 2)
 		ft_error("no args\n");
 	parse_args(ac , av, &stack_a);
-	array = malloc(sizeof(int) * (ft_lstsize(stack_a) + 1)); 
-	if (ft_lstsize(stack_a) == 2 && stack_a->value > stack_a->next->value)
-		sa(&stack_a);
-	else if (ft_lstsize(stack_a) == 3)
-		sort_three(&stack_a);
-	else if (ft_lstsize(stack_a) == 4)
-		sort_four(&stack_a, &stack_b);
-	else if (ft_lstsize(stack_a) == 5)
-		sort_five(&stack_a, &stack_a);
+	array = malloc(sizeof(int) * (ft_lstsize(stack_a) + 1));
+	if (is_sorted(stack_a))
+		ft_error("sorted!");
+	else
+	{
+		if (ft_lstsize(stack_a) == 2 && stack_a->value > stack_a->next->value)
+			sa(&stack_a);
+		else if (ft_lstsize(stack_a) == 3)
+			sort_three(&stack_a);	
+	}
+	find_smallest_and_second_smallest(stack_a);
 	t_list *tmp = stack_a;
 	printf("-----------\n");
 	while (tmp != NULL)

@@ -4,6 +4,7 @@
 # include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
+# include <limits.h>
 
 typedef struct s_list
 {
@@ -38,15 +39,13 @@ void 				rrr(t_list **stack_a, t_list **stack_b);
 void 				ss(t_list **stack_a, t_list **stack_b);
 void 				rr(t_list **stack_a, t_list **stack_b);
 
-void				sort_five(t_list **stack_a, t_list **stack_b);
-void				sort_four(t_list **stack_a, t_list **stack_b);
 void				sort_three(t_list **stack_a);
-void 				find_smallest(t_list **stack);
-
+int					is_sorted(t_list *stack);
 void 				parse_args(int ac, char **av, t_list **stack_a);
 void 				parse_arguments(int ac, char **av, t_list **stack_a);
 void 				parse_string(char *str, t_list **stack_a);
 int					check_duplicates(t_list *stack_a, int num);
 void				ft_error(char *str);
+void				find_smallest_and_second_smallest(t_list *stack);
 
 #endif
