@@ -46,6 +46,6 @@ void 				parse_arguments(int ac, char **av, t_list **stack_a);
 void 				parse_string(char *str, t_list **stack_a);
 int					check_duplicates(t_list *stack_a, int num);
 void				ft_error(char *str);
-void				find_smallest_and_second_smallest(t_list *stack);
+void				sort_stack(t_list **stack_a, t_list **stack_b);
 
 #endif
