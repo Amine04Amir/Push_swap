@@ -6,15 +6,15 @@
 /*   By: mamir <mamir@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/26 16:45:55 by mamir             #+#    #+#             */
-/*   Updated: 2024/06/08 23:34:20 by mamir            ###   ########.fr       */
+/*   Updated: 2024/07/18 17:22:45 by mamir            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void	swap(t_list **stack)
+void	swap(t_stack **stack)
 {
-	t_list	*tmp;
+	t_stack	*tmp;
 
 	if (*stack == NULL || (*stack)->next == NULL)
 		return ;
@@ -24,9 +24,9 @@ void	swap(t_list **stack)
 	*stack = tmp;
 }
 
-void	rotate(t_list **stack)
+void	rotate(t_stack **stack)
 {
-	t_list	*last;
+	t_stack	*last;
 
 	if (*stack == NULL || (*stack)->next == NULL)
 		return ;
@@ -36,10 +36,10 @@ void	rotate(t_list **stack)
 	last->next->next = NULL;
 }
 
-void	reverse_rotate(t_list **stack)
+void	reverse_rotate(t_stack **stack)
 {
-	t_list	*last;
-	t_list	*before_last;
+	t_stack	*last;
+	t_stack	*before_last;
 
 	last = *stack;
 	before_last = NULL;
@@ -55,9 +55,9 @@ void	reverse_rotate(t_list **stack)
 	*stack = last;
 }
 
-void	pa(t_list **stack_a, t_list **stack_b)
+void	pa(t_stack **stack_a, t_stack **stack_b)
 {
-	t_list *tmp;
+	t_stack *tmp;
 
 	if (*stack_b == NULL)
 		return ;
@@ -68,9 +68,9 @@ void	pa(t_list **stack_a, t_list **stack_b)
 	write(1, "pa\n", 3);
 }
 
-void	pb(t_list **stack_a, t_list **stack_b)
+void	pb(t_stack **stack_a, t_stack **stack_b)
 {
-	t_list	*tmp;
+	t_stack	*tmp;
 
 	if (*stack_a == NULL)
 		return ;

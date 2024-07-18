@@ -6,13 +6,13 @@
 /*   By: mamir <mamir@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/27 12:59:44 by mamir             #+#    #+#             */
-/*   Updated: 2024/06/08 18:08:41 by mamir            ###   ########.fr       */
+/*   Updated: 2024/07/18 17:25:04 by mamir            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-t_list	*ft_lstlast(t_list *list)
+t_stack	*ft_lstlast(t_stack *list)
 {
 	if (list == NULL)
 		return (NULL);
@@ -21,9 +21,9 @@ t_list	*ft_lstlast(t_list *list)
 	return (list);
 }
 
-void	ft_lstadd_back(t_list **list, t_list *new)
+void	ft_lstadd_back(t_stack **list, t_stack *new)
 {
-	t_list	*last;
+	t_stack	*last;
 
 	if (list == NULL)
 		return ;
@@ -36,19 +36,19 @@ void	ft_lstadd_back(t_list **list, t_list *new)
 	last->next = new;
 }
 
-t_list	*ft_lstnew(int data)
+t_stack	*ft_lstnew(int data)
 {
-	t_list	*node;
+	t_stack	*node;
 
-	node = (t_list *)malloc(sizeof(t_list));
+	node = (t_stack *)malloc(sizeof(t_stack));
 	if (node == NULL)
 		return (NULL);
-	node->value = data;
+	node->nbr = data;
 	node->next = NULL;
 	return (node);
 }
 
-int ft_lstsize(t_list *list)
+int ft_lstsize(t_stack *list)
 {
 	int i;
 	
@@ -63,9 +63,9 @@ int ft_lstsize(t_list *list)
 	return i;
 }
 
-void free_list(t_list *stack)
+void free_list(t_stack *stack)
 {
-	t_list *tmp;
+	t_stack *tmp;
 	
 	while (stack != NULL)
 	{

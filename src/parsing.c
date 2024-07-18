@@ -1,6 +1,6 @@
 #include "../includes/push_swap.h"
 
-void parse_args(int ac, char **av, t_list **stack_a)
+void parse_args(int ac, char **av, t_stack **stack_a)
 {
 	if (ac == 2)
 		parse_string(av[1], stack_a);
@@ -8,7 +8,7 @@ void parse_args(int ac, char **av, t_list **stack_a)
 		parse_arguments(ac, av, stack_a);
 }
 
-void parse_arguments(int ac, char **av, t_list **stack_a)
+void parse_arguments(int ac, char **av, t_stack **stack_a)
 {
 	int i;
 	int nums;
@@ -24,7 +24,7 @@ void parse_arguments(int ac, char **av, t_list **stack_a)
 	}
 }
 
-void parse_string(char *str, t_list **stack_a)
+void parse_string(char *str, t_stack **stack_a)
 {
 	int i;
 	int nums;
@@ -44,14 +44,14 @@ void parse_string(char *str, t_list **stack_a)
 	free(string);
 }
 
-int check_duplicates(t_list *stack_a, int num)
+int check_duplicates(t_stack *stack_a, int num)
 {
-	t_list *head;
+	t_stack *head;
 
 	head = stack_a;
 	while (head != NULL)
 	{
-		if (head->value == num)
+		if (head->nbr == num)
 			return 1;
 		head = head->next;
 	}
