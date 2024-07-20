@@ -1,10 +1,10 @@
 NAME = push_swap
 
-SRC =	./src/main.c \
+SRC =	./src/0_main.c ./src/1_process.c \
 		./src/utils.c ./src/utils1.c \
-		./src/lst.c \
+		./src/3_lst.c \
 		./src/moves.c ./src/moves1.c ./src/moves2.c \
-		./src/parsing.c \
+		./src/2_sort.c \
 		
 		
 		
