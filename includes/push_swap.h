@@ -20,7 +20,6 @@ typedef struct s_stack
 }					t_stack;
 
 /*  *** handle errors *** */
-
 int			ft_duplicates(t_stack *a, int n);
 int			syntax_errors(char *str);
 void		free_stack(t_stack **stack);
@@ -29,9 +28,14 @@ void		ft_error(t_stack **stack);
 /* *** stack init *** */
 
 /* *** utils *** */
+t_stack			*find_max(t_stack *stack);
+t_stack			*find_min(t_stack *stack);
+t_stack			*find_last(t_stack *list);
+int 			stack_size(t_stack *list);
+bool			stack_sorted(t_stack *stack);
+
 
 /* *** commands *** */
-
 void			sa(t_stack **stack_a);
 void			sb(t_stack **stack_b);
 void			ss(t_stack **stack_a, t_stack **stack_b);
@@ -45,6 +49,6 @@ void			rrb(t_stack **stack_b);
 void 			rrr(t_stack **stack_a, t_stack **stack_b);
 
 /* *** Algo *** */
-
+void			sort_three(t_stack **stack);
 
 #endif

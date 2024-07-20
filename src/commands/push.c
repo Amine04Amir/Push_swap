@@ -6,11 +6,11 @@
 /*   By: mamir <mamir@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/26 16:45:55 by mamir             #+#    #+#             */
-/*   Updated: 2024/07/20 02:34:17 by mamir            ###   ########.fr       */
+/*   Updated: 2024/07/20 03:00:31 by mamir            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "../../includes/push_swap.h"
 
 void	pa(t_stack **stack_a, t_stack **stack_b)
 {

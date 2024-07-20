@@ -1,11 +1,9 @@
 NAME = push_swap
 
-SRC =	./src/0_main.c ./src/1_process.c \
-		./src/utils.c ./src/utils1.c \
-		./src/3_lst.c \
-		./src/moves.c ./src/moves1.c ./src/moves2.c \
-		./src/2_sort.c \
-		
+SRC =	./src/commands/push.c ./src/commands/swap.c ./src/commands/rotate.c ./src/commands/rev_rotate.c \
+		./src/main/errors.c ./src/main/helpers.c ./src/main/stack_info.c \
+		./src/main/sort_three.c \
+		./src/main/main.c
 		
 		
 CC = cc

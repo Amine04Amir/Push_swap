@@ -1,10 +1,12 @@
-#include "../includes/push_swap.h"
+#include "../../includes/push_swap.h"
 
 int ft_duplicates(t_stack *a, int n)
 {
     if (!a)
+    {
         return (0);
-	while (a)
+    }
+	while(a)
 	{
 		if (a->nbr == n)
 			return 1;

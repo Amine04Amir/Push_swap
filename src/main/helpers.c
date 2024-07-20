@@ -1,24 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   lst.c                                              :+:      :+:    :+:   */
+/*   helpers.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mamir <mamir@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/27 12:59:44 by mamir             #+#    #+#             */
-/*   Updated: 2024/07/18 18:50:40 by mamir            ###   ########.fr       */
+/*   Updated: 2024/07/20 16:36:42 by mamir            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "../../includes/push_swap.h"
 
-t_stack	*ft_lstlast(t_stack *list)
+long ft_atol(char *s)
 {
-	if (list == NULL)
-		return (NULL);
-	while (list->next != NULL)
-		list = list->next;
-	return (list);
+	long result;
+	int sign;
+
+	result = 0;
+	sign = 1;
+	while (*s == ' ' || (*s >= 9 && *s <= 13))
+		s++;
+	if (*s == '-' || *s == '+')
+	{
+		if (*s == '-')
+			sign = -1;
+		s++;
+	}
+	while (*s >= '0' && *s <= '9')
+		result = result * 10 + (*s++ - '0');
+	return (result * sign);
 }
 
 void	ft_lstadd_back(t_stack **list, t_stack *new)
@@ -48,29 +59,3 @@ t_stack	*ft_lstnew(int data)
 	return (node);
 }
 
-int ft_lstsize(t_stack *list)
-{
-	int i;
-	
-	i = 1;
-	if (list == NULL)
-		return 0;
-	while (list->next != NULL)
-	{
-		i++;
-		list = list->next;	
-	}
-	return i;
-}
-
-void free_list(t_stack *stack)
-{
-	t_stack *tmp;
-	
-	while (stack != NULL)
-	{
-		tmp = stack;
-		stack = stack->next;
-		free(tmp);
-	}
-}
