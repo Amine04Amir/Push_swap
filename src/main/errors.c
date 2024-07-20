@@ -26,3 +26,28 @@ int syntax_errors(char *str)
     }
     return (0);
 }
+
+void free_stack(t_stack **stack)
+{
+    t_stack *tmp;
+    t_stack *current;
+    
+    if (!stack)
+        return ;
+    current = *stack;
+    while (current)
+    {
+        tmp = current->next;
+        current->nbr = 0;
+        free(current);
+        current = tmp;
+    }
+    *stack = NULL;
+}
+
+void ft_error(t_stack **stack)
+{
+    free_stack(stack);
+    write(2, "Error!\n", 8);
+    exit(1);
+}

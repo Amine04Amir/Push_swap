@@ -1,30 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   0_main.c                                           :+:      :+:    :+:   */
+/*   rotate.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mamir <mamir@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/26 16:45:32 by mamir             #+#    #+#             */
-/*   Updated: 2024/07/19 18:51:16 by mamir            ###   ########.fr       */
+/*   Created: 2024/05/26 16:46:00 by mamir             #+#    #+#             */
+/*   Updated: 2024/07/20 02:34:57 by mamir            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-int	main(int ac, char **av)
+void	rotate(t_stack **stack)
 {
-	t_stack *a;
+	t_stack	*last;
 
-	a = ft_process(ac, av);
-	if (!a || check_duplicates(a))
-	{
-		free_list(a);
-		ft_error("double");
-	}
-	if (!is_sorted(a))
-		ft_sort(&a);
-	else
-		ft_error("sorted");
-	free_list(a);
+	if (*stack == NULL || (*stack)->next == NULL)
+		return ;
+	last = ft_lstlast(*stack);
+	last->next = *stack;
+	*stack = (*stack)->next;
+	last->next->next = NULL;
+}
+
+void ra(t_stack **stack_a)
+{
+	rotate(stack_a);
+	write(1, "ra\n", 3);
+}
+
+void	rb(t_stack **stack_b)
+{
+	rotate(stack_b);
+	write(1, "rb\n", 3);
+}
+
+void rr(t_stack **stack_a, t_stack **stack_b)
+{
+	ra(stack_a);
+	rb(stack_b);
 }

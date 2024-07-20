@@ -1,2 +1,3 @@
 .vscode
 ./src/t.sh
+./includes/d.sh
