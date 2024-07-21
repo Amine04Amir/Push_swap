@@ -19,13 +19,16 @@ typedef struct s_stack
 	struct s_stack	*prev;
 }					t_stack;
 
-/*  *** handle errors *** */
+/*  *** errors *** */
 int			ft_duplicates(t_stack *a, int n);
 int			syntax_errors(char *str);
 void		free_stack(t_stack **stack);
 void		ft_error(t_stack **stack);
 
-/* *** stack init *** */
+/* *** stack  *** */
+char **split(char *str, char c);
+
+/* *** nodes  *** */
 
 /* *** utils *** */
 t_stack			*find_max(t_stack *stack);
