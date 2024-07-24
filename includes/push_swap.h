@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   push_swap.h                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mamir <mamir@student.42.fr>                +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/07/21 18:49:28 by mamir             #+#    #+#             */
+/*   Updated: 2024/07/21 18:50:16 by mamir            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
@@ -36,7 +48,6 @@ t_stack			*find_min(t_stack *stack);
 t_stack			*find_last(t_stack *list);
 int 			stack_size(t_stack *list);
 bool			stack_sorted(t_stack *stack);
-
 
 /* *** commands *** */
 void			sa(t_stack **stack_a);

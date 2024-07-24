@@ -6,7 +6,7 @@
 /*   By: mamir <mamir@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/27 12:59:44 by mamir             #+#    #+#             */
-/*   Updated: 2024/07/20 16:36:42 by mamir            ###   ########.fr       */
+/*   Updated: 2024/07/21 18:52:25 by mamir            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ void	ft_lstadd_back(t_stack **list, t_stack *new)
 		*list = new;
 		return ;
 	}
-	last = ft_lstlast(*list);
+	last = find_last(*list);
 	last->next = new;
 }
 

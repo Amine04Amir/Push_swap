@@ -6,7 +6,7 @@
 /*   By: mamir <mamir@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/26 16:46:00 by mamir             #+#    #+#             */
-/*   Updated: 2024/07/20 03:00:37 by mamir            ###   ########.fr       */
+/*   Updated: 2024/07/21 18:52:06 by mamir            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	rotate(t_stack **stack)
 
 	if (*stack == NULL || (*stack)->next == NULL)
 		return ;
-	last = ft_lstlast(*stack);
+	last = find_last(*stack);
 	last->next = *stack;
 	*stack = (*stack)->next;
 	last->next->next = NULL;

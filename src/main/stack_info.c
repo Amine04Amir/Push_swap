@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   stack_info.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mamir <mamir@student.42.fr>                +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/07/21 18:49:53 by mamir             #+#    #+#             */
+/*   Updated: 2024/07/21 18:52:52 by mamir            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../../includes/push_swap.h"
 
 t_stack *find_min(t_stack *stack)
@@ -6,7 +18,7 @@ t_stack *find_min(t_stack *stack)
     t_stack *smallest;
 
     min = LONG_MAX;
-    if (!stack);
+    if (!stack)
         return (NULL);
     while (stack)
     {
