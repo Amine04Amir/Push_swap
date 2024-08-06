@@ -6,7 +6,7 @@
 /*   By: mamir <mamir@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/21 18:49:28 by mamir             #+#    #+#             */
-/*   Updated: 2024/08/04 14:58:44 by mamir            ###   ########.fr       */
+/*   Updated: 2024/08/06 11:23:00 by mamir            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,10 +36,9 @@ int					ft_duplicates(t_stack *a, int n);
 int					syntax_errors(char *str);
 void				free_stack(t_stack **stack);
 void				ft_error(t_stack **stack);
-/* *** stack  *** */
+/* *** stack / nodes  *** */
 char				**split(char *str, char c);
 void				init_stack_a(t_stack **a, char **av);
-void				sort_stacks(t_stack **a, t_stack **b);
 void				init_nodes_a(t_stack *a, t_stack *b);
 void				init_nodes_b(t_stack *a, t_stack *b);
 void				prep_for_push(t_stack **stack, t_stack *top_node,
@@ -66,8 +65,8 @@ void				rr(t_stack **stack_a, t_stack **stack_b);
 void				rra(t_stack **stack_a);
 void				rrb(t_stack **stack_b);
 void				rrr(t_stack **stack_a, t_stack **stack_b);
-
 /* *** Algo *** */
 void				sort_three(t_stack **stack);
+void				sort_stacks(t_stack **a, t_stack **b);
 
 #endif

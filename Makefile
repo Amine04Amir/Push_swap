@@ -9,14 +9,14 @@ SRC =	./src/commands/push.c ./src/commands/swap.c ./src/commands/rotate.c ./src/
 		
 		
 CC = cc
-CFLAGS = -Werror -Wextra -Wall
+CFLAGS = -Werror -Wextra -Wall	
 
 all : $(NAME)
 
 OBJ = $(SRC:.c=.o)
 
 $(NAME) : $(OBJ)
-	$(CC) $(OBJ) -o $(NAME)  
+	$(CC) $(OBJ) -o $(NAME)
 
 %.o:%.c
 	$(CC) $(CFLAGS) -c $< -o $@

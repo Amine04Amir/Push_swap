@@ -6,7 +6,7 @@
 /*   By: mamir <mamir@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/26 16:45:32 by mamir             #+#    #+#             */
-/*   Updated: 2024/08/06 10:08:47 by mamir            ###   ########.fr       */
+/*   Updated: 2024/08/06 11:26:57 by mamir            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,11 @@ int	main(int ac, char **av)
 
 	a = NULL;
 	b = NULL;
-	if (ac < 2)
-		ft_error(&a);
+	if (ac == 1 || (ac == 2 && !(av[1][0])))
+		return 0;
 	if (ac == 2)
 		av = split(av[1], ' ');
 	init_stack_a(&a, av + 1);
-	system("leaks push_swap");
 	if (!stack_sorted(a))
 	{
 		if (stack_size(a) == 2)
