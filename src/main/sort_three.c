@@ -6,21 +6,32 @@
 /*   By: mamir <mamir@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/21 18:49:46 by mamir             #+#    #+#             */
-/*   Updated: 2024/07/21 18:49:47 by mamir            ###   ########.fr       */
+/*   Updated: 2024/08/04 17:01:26 by mamir            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/push_swap.h"
 
-void sort_three(t_stack **stack)
+void    sort_three(t_stack **a)
 {
-    t_stack *biggest_node;
-
-    biggest_node = find_max(*stack);
-    if (biggest_node == *stack)
-        ra(stack);
-    else if ((*stack)->next == biggest_node)
-        rra(stack);
-    if ((*stack)->nbr > (*stack)->next->nbr)
-        sa(stack);
+	if ((*a)->nbr > (*a)->next->nbr
+		&& (*a)->nbr > (*a)->next->next->nbr)
+	{
+		ra(a);
+		if ((*a)->nbr > (*a)->next->nbr)
+			sa(a);
+	}
+	else if ((*a)->nbr < (*a)->next->nbr
+		&& (*a)->next->nbr > (*a)->next->next->nbr)
+	{
+		rra(a);
+		if ((*a)->nbr > (*a)->next->nbr)
+			sa(a);
+	}
+	else if ((*a)->next->next->nbr > (*a)->nbr
+		&& (*a)->next->next->nbr > (*a)->next->nbr)
+	{
+		if ((*a)->nbr > (*a)->next->nbr)
+			sa(a);
+	}
 }

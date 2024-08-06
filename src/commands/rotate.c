@@ -6,7 +6,7 @@
 /*   By: mamir <mamir@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/26 16:46:00 by mamir             #+#    #+#             */
-/*   Updated: 2024/07/21 18:52:06 by mamir            ###   ########.fr       */
+/*   Updated: 2024/08/04 14:07:48 by mamir            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	rotate(t_stack **stack)
 	last->next->next = NULL;
 }
 
-void ra(t_stack **stack_a)
+void	ra(t_stack **stack_a)
 {
 	rotate(stack_a);
 	write(1, "ra\n", 3);
@@ -36,7 +36,7 @@ void	rb(t_stack **stack_b)
 	write(1, "rb\n", 3);
 }
 
-void rr(t_stack **stack_a, t_stack **stack_b)
+void	rr(t_stack **stack_a, t_stack **stack_b)
 {
 	ra(stack_a);
 	rb(stack_b);
