@@ -6,7 +6,7 @@
 /*   By: mamir <mamir@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/25 17:01:25 by mamir             #+#    #+#             */
-/*   Updated: 2024/08/04 14:53:24 by mamir            ###   ########.fr       */
+/*   Updated: 2024/08/06 14:07:44 by mamir            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ void	init_stack_a(t_stack **a, char **av)
 	{
 		if (syntax_errors(av[i]))
 			ft_error(a);
-		n = ft_atol(av[i]);
+		n = ft_atol(av[i], a);
 		if (n > INT_MAX || n < INT_MIN)
 			ft_error(a);
 		else if (ft_duplicates(*a, (int)n))

@@ -9,7 +9,7 @@ SRC =	./src/commands/push.c ./src/commands/swap.c ./src/commands/rotate.c ./src/
 		
 		
 CC = cc
-CFLAGS = -Werror -Wextra -Wall	
+CFLAGS = -Werror -Wextra -Wall
 
 all : $(NAME)
 

@@ -6,7 +6,7 @@
 /*   By: mamir <mamir@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/21 18:49:28 by mamir             #+#    #+#             */
-/*   Updated: 2024/08/06 11:23:00 by mamir            ###   ########.fr       */
+/*   Updated: 2024/08/06 14:04:55 by mamir            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ t_stack				*get_cheapest(t_stack *stack);
 void				current_index(t_stack *stack);
 int					stack_size(t_stack *list);
 bool				stack_sorted(t_stack *stack);
-long				ft_atol(char *s);
+long				ft_atol(char *s, t_stack **stack);
 /* *** commands *** */
 void				sa(t_stack **stack_a);
 void				sb(t_stack **stack_b);

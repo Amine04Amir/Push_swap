@@ -20,7 +20,7 @@ int	main(int ac, char **av)
 	a = NULL;
 	b = NULL;
 	if (ac == 1 || (ac == 2 && !(av[1][0])))
-		return 0;
+		return (0);
 	if (ac == 2)
 		av = split(av[1], ' ');
 	init_stack_a(&a, av + 1);
