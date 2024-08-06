@@ -63,14 +63,14 @@ t_stack	*find_last(t_stack *list)
 
 int	stack_size(t_stack *list)
 {
-	int	count; 
+	int	count;
 
-	if (!list) 
+	if (!list)
 		return (0);
 	count = 0;
 	while (list)
 	{
-		list = list->next; 
+		list = list->next;
 		count++;
 	}
 	return (count);

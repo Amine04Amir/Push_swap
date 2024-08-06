@@ -12,17 +12,17 @@
 
 #include "../../includes/push_swap.h"
 
-t_stack *get_cheapest(t_stack *stack)
+t_stack	*get_cheapest(t_stack *stack)
 {
 	if (!stack)
-		return NULL;
-	while(stack)
+		return (NULL);
+	while (stack)
 	{
 		if (stack->cheapest)
 			return (stack);
 		stack = stack->next;
 	}
-	return NULL;
+	return (NULL);
 }
 
 void	ft_append(t_stack **stack, int n)
@@ -70,16 +70,16 @@ void	init_stack_a(t_stack **a, char **av)
 	}
 }
 
-void prep_for_push(t_stack **stack, t_stack *top_node, char stack_name)
+void	prep_for_push(t_stack **stack, t_stack *top_node, char stack_name)
 {
-	while(*stack != top_node)
+	while (*stack != top_node)
 	{
 		if (stack_name == 'a')
 		{
 			if (top_node->above_median)
 				ra(stack);
 			else
-				rra(stack);	
+				rra(stack);
 		}
 		else if (stack_name == 'b')
 		{
@@ -91,7 +91,7 @@ void prep_for_push(t_stack **stack, t_stack *top_node, char stack_name)
 	}
 }
 
-void min_on_top(t_stack **a)
+void	min_on_top(t_stack **a)
 {
 	while ((*a)->nbr != find_min(*a)->nbr)
 	{

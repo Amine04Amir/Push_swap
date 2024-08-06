@@ -42,7 +42,8 @@ void				init_stack_a(t_stack **a, char **av);
 void				sort_stacks(t_stack **a, t_stack **b);
 void				init_nodes_a(t_stack *a, t_stack *b);
 void				init_nodes_b(t_stack *a, t_stack *b);
-void				prep_for_push(t_stack **stack, t_stack *top_node, char stack_name);
+void				prep_for_push(t_stack **stack, t_stack *top_node,
+						char stack_name);
 void				min_on_top(t_stack **a);
 /* *** utils *** */
 t_stack				*find_max(t_stack *stack);

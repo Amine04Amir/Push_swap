@@ -6,7 +6,7 @@
 /*   By: mamir <mamir@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/03 11:59:28 by mamir             #+#    #+#             */
-/*   Updated: 2024/08/05 14:00:11 by mamir            ###   ########.fr       */
+/*   Updated: 2024/08/06 10:08:32 by mamir            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,8 +45,7 @@ static void	set_target_a(t_stack *a, t_stack *b)
 		current_b = b;
 		while (current_b)
 		{
-			if (current_b->nbr < a->nbr
-				&& current_b->nbr > best_match_index)
+			if (current_b->nbr < a->nbr && current_b->nbr > best_match_index)
 			{
 				best_match_index = current_b->nbr;
 				target_node = current_b;
@@ -65,20 +64,19 @@ static void	cost_analysis_a(t_stack *a, t_stack *b)
 {
 	int	len_a;
 	int	len_b;
-	
+
 	len_a = stack_size(a);
 	len_b = stack_size(b);
-
-	while (a) 
+	while (a)
 	{
 		a->push_cost = a->index;
 		if (!(a->above_median))
-			a->push_cost = len_a - (a->index); 
-		if (a->target_node->above_median) 
-			a->push_cost += a->target_node->index; 
-		else 
+			a->push_cost = len_a - (a->index);
+		if (a->target_node->above_median)
+			a->push_cost += a->target_node->index;
+		else
 			a->push_cost += len_b - (a->target_node->index);
-		a = a->next; 
+		a = a->next;
 	}
 }
 
@@ -86,7 +84,7 @@ void	set_cheapest(t_stack *stack)
 {
 	long	cheapest_value;
 	t_stack	*cheapest_node;
-	
+
 	if (!stack)
 		return ;
 	cheapest_value = LONG_MAX;
@@ -110,22 +108,3 @@ void	init_nodes_a(t_stack *a, t_stack *b)
 	cost_analysis_a(a, b);
 	set_cheapest(a);
 }
-
-// void    ft_calc_movtg(t_stack *stack_a, t_stack *stack_b, t_stack *node)
-// {
-//     if (node->above_median == 1 && node->target_node->above_median == 1)
-//     {
-//         if (node->index < node->target_node->index)
-//             node->push_cost -= node->index;
-//         else
-//             node->push_cost -= node->target_node->index;
-//     }
-//     else if (node->above_median == 0 && node->target_node->above_median == 0)
-//     {
-//         if (ft_stacklength(stack_a) - node->index 
-//             < ft_stacklength(stack_b) - node->target_node->index)
-//             node->push_cost -= stack_size(stack_a) - node->index;
-//         else
-//             node->push_cost -= stack_size(stack_b) - node->target_node->index;
-//     }
-// }

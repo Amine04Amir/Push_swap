@@ -6,7 +6,7 @@
 /*   By: mamir <mamir@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/26 16:45:32 by mamir             #+#    #+#             */
-/*   Updated: 2024/08/06 10:05:29 by mamir            ###   ########.fr       */
+/*   Updated: 2024/08/06 10:08:47 by mamir            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,12 +35,5 @@ int	main(int ac, char **av)
 			sort_stacks(&a, &b);
 	}
 	free_stack(&a);
-	// t_stack *tmp;
-	// printf("-----------\n");
-	// tmp = a;
-	// while (tmp != NULL)
-	// {
-	// 	printf ("%d\n", tmp->nbr);
-	// 	tmp = tmp->next;
-	// }
+	return (0);
 }

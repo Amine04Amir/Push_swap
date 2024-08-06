@@ -22,7 +22,7 @@ static void	set_target_b(t_stack *a, t_stack *b)
 	{
 		best_match_index = LONG_MAX;
 		current_a = a;
-		while(current_a)
+		while (current_a)
 		{
 			if (current_a->nbr > b->nbr && current_a->nbr < best_match_index)
 			{
