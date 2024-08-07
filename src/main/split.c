@@ -6,84 +6,84 @@
 /*   By: mamir <mamir@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/21 18:49:18 by mamir             #+#    #+#             */
-/*   Updated: 2024/07/25 17:00:32 by mamir            ###   ########.fr       */
+/*   Updated: 2024/08/07 20:33:51 by mamir            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/push_swap.h"
 
-int	word_count(char *str, char c)
+int	ft_count(char *str, char c)
 {
-	int		count;
-	bool	inside_word;
+	int	count;
+	int	i;
 
 	count = 0;
-	while (*str)
+	i = 0;
+	while (str[i])
 	{
-		inside_word = false;
-		while (*str == c)
-			str++;
-		while (*str && *str != c)
-		{
-			if (!inside_word)
-			{
-				count++;
-				inside_word = true;
-			}
-			str++;
-		}
+		while (str[i] == c)
+			i++;
+		if (str[i] != c && str[i])
+			count++;
+		while (str[i] != c && str[i])
+			i++;
 	}
 	return (count);
 }
 
-char	*get_next_word(char *s, char c)
+int	len_til_c(char *s, char c)
 {
-	static int	cursor;
-	char		*next_word;
-	int			len;
-	int			i;
+	int	i;
 
-	cursor = 0;
-	len = 0;
 	i = 0;
-	while (s[cursor] == c)
-		++cursor;
-	while ((s[cursor + len] != c) && s[cursor + len])
-		++len;
-	next_word = malloc((size_t)len * sizeof(char) + 1);
-	if (!next_word)
-		return (NULL);
-	while ((s[cursor] != c) && s[cursor])
-		next_word[i++] = s[cursor++];
-	next_word[i] = '\0';
-	return (next_word);
+	while (s[i] != c && s[i])
+		i++;
+	return (i);
 }
 
-char	**split(char *str, char c)
+char	*ft_word(char *s, char c)
 {
-	int		words;
+	char	*str;
 	int		i;
-	char	**result;
+	int		len;
 
 	i = 0;
-	words = word_count(str, c);
-	if (!words)
-		exit(1);
-	result = malloc(sizeof(char *) * (size_t)(words + 2));
-	if (!result)
+	len = len_til_c(s, c);
+	str = malloc(sizeof(char) * len + 1);
+	if (!str)
 		return (NULL);
-	while (words-- >= 0)
+	while (len > i)
 	{
-		if (i == 0)
-		{
-			result[i] = malloc(sizeof(char));
-			if (!result[i])
-				return (NULL);
-			result[i++][0] = '\0';
-			continue ;
-		}
-		result[i++] = get_next_word(str, c);
+		str[i] = s[i];
+		i++;
 	}
-	result[i] = NULL;
-	return (result);
+	str[i] = '\0';
+	return (str);
+}
+
+char	**ft_split(char *str, char c)
+{
+	char	**s;
+	int		i;
+	int		j;
+
+	i = 0;
+	j = 0;
+	s = malloc(sizeof(char *) * ft_count(str, c) + 1);
+	if (!s)
+		return (NULL);
+	while (str[i])
+	{
+		while (str[i] == c)
+			i++;
+		if (str[i] != c && str[i])
+		{
+			s[j] = ft_word(&str[i], c);
+			j++;
+		}
+		while (str[i] != c && str[i])
+			i++;
+	}
+	s[j] = NULL;
+	return (s);
 }

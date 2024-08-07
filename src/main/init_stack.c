@@ -6,7 +6,7 @@
 /*   By: mamir <mamir@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/25 17:01:25 by mamir             #+#    #+#             */
-/*   Updated: 2024/08/06 14:07:44 by mamir            ###   ########.fr       */
+/*   Updated: 2024/08/07 20:32:09 by mamir            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ t_stack	*get_cheapest(t_stack *stack)
 	return (NULL);
 }
 
-void	ft_append(t_stack **stack, int n)
+void	ft_append(t_stack **stack, long n)
 {
 	t_stack	*node;
 	t_stack	*last_node;
@@ -50,22 +50,25 @@ void	ft_append(t_stack **stack, int n)
 	}
 }
 
-void	init_stack_a(t_stack **a, char **av)
+void	init_stack_a(t_stack **a, char **tab)
 {
 	long	n;
 	int		i;
 
+	n = 0;
 	i = 0;
-	while (av[i])
+	if (!tab)
+		return ;
+	while (tab[i])
 	{
-		if (syntax_errors(av[i]))
+		if (syntax_errors(tab[i]))
 			ft_error(a);
-		n = ft_atol(av[i], a);
+		n = ft_atol(tab[i], a);
 		if (n > INT_MAX || n < INT_MIN)
 			ft_error(a);
 		else if (ft_duplicates(*a, (int)n))
 			ft_error(a);
-		ft_append(a, (int)n);
+		ft_append(a, n);
 		i++;
 	}
 }

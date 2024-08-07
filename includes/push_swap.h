@@ -6,7 +6,7 @@
 /*   By: mamir <mamir@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/21 18:49:28 by mamir             #+#    #+#             */
-/*   Updated: 2024/08/06 14:04:55 by mamir            ###   ########.fr       */
+/*   Updated: 2024/08/07 20:32:46 by mamir            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ int					syntax_errors(char *str);
 void				free_stack(t_stack **stack);
 void				ft_error(t_stack **stack);
 /* *** stack / nodes  *** */
-char				**split(char *str, char c);
+char				**ft_split(char *str, char c);
 void				init_stack_a(t_stack **a, char **av);
 void				init_nodes_a(t_stack *a, t_stack *b);
 void				init_nodes_b(t_stack *a, t_stack *b);
