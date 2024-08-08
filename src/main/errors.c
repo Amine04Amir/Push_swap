@@ -50,7 +50,7 @@ void	free_stack(t_stack **stack)
 	while (current)
 	{
 		tmp = current->next;
-		current->nbr = 0;
+		// current->nbr = 0;
 		free(current);
 		current = tmp;
 	}
@@ -59,6 +59,13 @@ void	free_stack(t_stack **stack)
 
 void	ft_error(t_stack **stack)
 {
+	free_stack(stack);
+	write(2, "Error\n", 7);
+	exit(1);
+}
+void	ft_error_tab(t_stack **stack, char **tab)
+{
+	free_tab(tab);
 	free_stack(stack);
 	write(2, "Error\n", 7);
 	exit(1);

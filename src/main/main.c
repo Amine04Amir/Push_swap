@@ -12,6 +12,14 @@
 
 #include "../../includes/push_swap.h"
 
+void free_tab(char **tab)
+{
+	int j = 0;
+		while (tab[j])
+			free(tab[j++]);
+		free(tab);
+}
+
 void	split_args(t_stack **a, int ac, char **av)
 {
 	char	**tab;
@@ -22,10 +30,7 @@ void	split_args(t_stack **a, int ac, char **av)
 	{
 		tab = ft_split(av[i], ' ');
 		init_stack_a(a, tab);
-		int j = 0;
-		while (tab[j])
-			free(tab[j++]);
-		free(tab);
+		free_tab(tab);
 		i++;
 	}
 }

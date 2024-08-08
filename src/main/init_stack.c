@@ -62,12 +62,10 @@ void	init_stack_a(t_stack **a, char **tab)
 	while (tab[i])
 	{
 		if (syntax_errors(tab[i]))
-			ft_error(a);
-		n = ft_atol(tab[i], a);
-		if (n > INT_MAX || n < INT_MIN)
-			ft_error(a);
-		else if (ft_duplicates(*a, (int)n))
-			ft_error(a);
+			ft_error_tab(a, tab);
+		n = ft_atol(tab[i], a, tab);
+		if (ft_duplicates(*a, (int)n))
+			ft_error_tab(a, tab);
 		ft_append(a, n);
 		i++;
 	}

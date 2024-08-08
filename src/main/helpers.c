@@ -12,7 +12,7 @@
 
 #include "../../includes/push_swap.h"
 
-long	ft_atol(char *s, t_stack **stack)
+long	ft_atol(char *s, t_stack **stack, char **tab)
 {
 	long	result;
 	int		sign;
@@ -29,9 +29,11 @@ long	ft_atol(char *s, t_stack **stack)
 	}
 	while (*s >= '0' && *s <= '9')
 	{
-		if (result * sign < INT_MIN || result * sign > INT_MAX)
-			ft_error(stack);
 		result = result * 10 + (*s++ - '0');
+		if (sign == 1 && result > INT_MAX)
+			ft_error_tab(stack, tab);
+		if (sign == -1 && result > 2147483648)
+			ft_error_tab(stack, tab);
 	}
 	return (result * sign);
 }

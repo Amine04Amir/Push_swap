@@ -36,6 +36,9 @@ int					ft_duplicates(t_stack *a, int n);
 int					syntax_errors(char *str);
 void				free_stack(t_stack **stack);
 void				ft_error(t_stack **stack);
+void 				free_tab(char **tab);
+void				ft_error_tab(t_stack **stack, char **tab);
+
 /* *** stack / nodes  *** */
 char				**ft_split(char *str, char c);
 void				init_stack_a(t_stack **a, char **av);
@@ -52,7 +55,7 @@ t_stack				*get_cheapest(t_stack *stack);
 void				current_index(t_stack *stack);
 int					stack_size(t_stack *list);
 bool				stack_sorted(t_stack *stack);
-long				ft_atol(char *s, t_stack **stack);
+long	ft_atol(char *s, t_stack **stack, char **tab);
 /* *** commands *** */
 void				sa(t_stack **stack_a);
 void				sb(t_stack **stack_b);
