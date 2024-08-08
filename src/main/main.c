@@ -6,7 +6,7 @@
 /*   By: mamir <mamir@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/26 16:45:32 by mamir             #+#    #+#             */
-/*   Updated: 2024/08/07 20:28:22 by mamir            ###   ########.fr       */
+/*   Updated: 2024/08/08 10:01:21 by mamir            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,10 @@ void	split_args(t_stack **a, int ac, char **av)
 	{
 		tab = ft_split(av[i], ' ');
 		init_stack_a(a, tab);
+		int j = 0;
+		while (tab[j])
+			free(tab[j++]);
+		free(tab);
 		i++;
 	}
 }

@@ -6,11 +6,24 @@
 /*   By: mamir <mamir@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/21 18:49:18 by mamir             #+#    #+#             */
-/*   Updated: 2024/08/07 20:33:51 by mamir            ###   ########.fr       */
+/*   Updated: 2024/08/08 09:59:30 by mamir            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/push_swap.h"
+
+void free_split(char **str)
+{
+	int i;
+
+	i = 0;
+	while (str[i])
+	{
+		free(str[i]);
+		i++;
+	}
+	free(str);
+}
 
 int	ft_count(char *str, char c)
 {
@@ -66,10 +79,12 @@ char	**ft_split(char *str, char c)
 	char	**s;
 	int		i;
 	int		j;
-
+	int		wc;
+	
 	i = 0;
 	j = 0;
-	s = malloc(sizeof(char *) * ft_count(str, c) + 1);
+	wc = ft_count(str, c);
+	s = malloc(sizeof(char *) * (wc + 1));
 	if (!s)
 		return (NULL);
 	while (str[i])
@@ -79,7 +94,11 @@ char	**ft_split(char *str, char c)
 		if (str[i] != c && str[i])
 		{
 			s[j] = ft_word(&str[i], c);
-			j++;
+			if (!s[j++])
+			{
+				free_split(s);
+				return (NULL);
+			}
 		}
 		while (str[i] != c && str[i])
 			i++;
