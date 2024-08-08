@@ -6,7 +6,7 @@
 /*   By: mamir <mamir@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/27 12:59:44 by mamir             #+#    #+#             */
-/*   Updated: 2024/08/06 14:04:33 by mamir            ###   ########.fr       */
+/*   Updated: 2024/08/08 11:47:33 by mamir            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,4 +36,17 @@ long	ft_atol(char *s, t_stack **stack, char **tab)
 			ft_error_tab(stack, tab);
 	}
 	return (result * sign);
+}
+
+void	free_split(char **str)
+{
+	int	i;
+
+	i = 0;
+	while (str[i])
+	{
+		free(str[i]);
+		i++;
+	}
+	free(str);
 }

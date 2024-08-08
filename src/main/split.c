@@ -6,24 +6,11 @@
 /*   By: mamir <mamir@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/21 18:49:18 by mamir             #+#    #+#             */
-/*   Updated: 2024/08/08 09:59:30 by mamir            ###   ########.fr       */
+/*   Updated: 2024/08/08 11:53:33 by mamir            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/push_swap.h"
-
-void free_split(char **str)
-{
-	int i;
-
-	i = 0;
-	while (str[i])
-	{
-		free(str[i]);
-		i++;
-	}
-	free(str);
-}
 
 int	ft_count(char *str, char c)
 {
@@ -74,19 +61,13 @@ char	*ft_word(char *s, char c)
 	return (str);
 }
 
-char	**ft_split(char *str, char c)
+char	**ft_copy(char **s, char *str, char c)
 {
-	char	**s;
-	int		i;
-	int		j;
-	int		wc;
-	
+	int	i;
+	int	j;
+
 	i = 0;
 	j = 0;
-	wc = ft_count(str, c);
-	s = malloc(sizeof(char *) * (wc + 1));
-	if (!s)
-		return (NULL);
 	while (str[i])
 	{
 		while (str[i] == c)
@@ -104,5 +85,18 @@ char	**ft_split(char *str, char c)
 			i++;
 	}
 	s[j] = NULL;
+	return (s);
+}
+
+char	**ft_split(char *str, char c)
+{
+	char	**s;
+	int		wc;
+
+	wc = ft_count(str, c);
+	s = malloc(sizeof(char *) * (wc + 1));
+	if (!s)
+		return (NULL);
+	s = ft_copy(s, str, c);
 	return (s);
 }

@@ -8,7 +8,7 @@ SRC =	./src/commands/push.c ./src/commands/swap.c ./src/commands/rotate.c ./src/
 		./src/main/sort_stacks.c \
 		
 		
-CC = cc #-fsanitize=address -g3
+CC = cc -fsanitize=address -g3
 CFLAGS = -Werror -Wextra -Wall 
 
 all : $(NAME)

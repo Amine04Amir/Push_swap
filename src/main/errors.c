@@ -6,7 +6,7 @@
 /*   By: mamir <mamir@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/21 18:49:34 by mamir             #+#    #+#             */
-/*   Updated: 2024/08/08 10:14:22 by mamir            ###   ########.fr       */
+/*   Updated: 2024/08/08 11:46:14 by mamir            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ void	free_stack(t_stack **stack)
 	while (current)
 	{
 		tmp = current->next;
-		// current->nbr = 0;
+		current->nbr = 0;
 		free(current);
 		current = tmp;
 	}
@@ -63,6 +63,7 @@ void	ft_error(t_stack **stack)
 	write(2, "Error\n", 7);
 	exit(1);
 }
+
 void	ft_error_tab(t_stack **stack, char **tab)
 {
 	free_tab(tab);
