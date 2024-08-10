@@ -6,7 +6,7 @@
 /*   By: mamir <mamir@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/21 18:49:28 by mamir             #+#    #+#             */
-/*   Updated: 2024/08/10 13:59:01 by mamir            ###   ########.fr       */
+/*   Updated: 2024/08/10 18:38:10 by mamir            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ typedef struct s_stack
 
 /*  *** errors *** */
 int					ft_duplicates(t_stack *a, int n);
-int					syntax_errors(char *str);
+int					syntax_errors(const char *str);
 void				free_stack(t_stack **stack);
 void				ft_error(t_stack **stack);
 void				free_tab(char **tab);
