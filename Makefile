@@ -9,7 +9,7 @@ SRC =	./src/commands/push.c ./src/commands/swap.c ./src/commands/rotate.c ./src/
 		
 OBJ = $(SRC:.c=.o)
 		
-CC = cc #-fsanitize=address -g3
+CC = cc -fsanitize=address -g3
 CFLAGS = -Werror -Wextra -Wall 
 
 all : $(NAME)
