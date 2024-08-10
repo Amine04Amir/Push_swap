@@ -6,7 +6,7 @@
 /*   By: mamir <mamir@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/21 18:49:28 by mamir             #+#    #+#             */
-/*   Updated: 2024/08/10 13:27:09 by mamir            ###   ########.fr       */
+/*   Updated: 2024/08/10 13:59:01 by mamir            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 # include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
-#include <string.h>
+# include <string.h>
 
 typedef struct s_stack
 {

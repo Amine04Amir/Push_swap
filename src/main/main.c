@@ -6,25 +6,26 @@
 /*   By: mamir <mamir@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/26 16:45:32 by mamir             #+#    #+#             */
-/*   Updated: 2024/08/10 13:43:47 by mamir            ###   ########.fr       */
+/*   Updated: 2024/08/10 13:59:50 by mamir            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/push_swap.h"
 
-int is_empty(char *str)
+int	is_empty(char *str)
 {
-	int i;
+	int		i;
 
 	i = 0;
 	while (str[i])
 	{
 		if (str[i] != ' ')
-			return 0;
+			return (0);
 		i++;
 	}
-	return 1;
+	return (1);
 }
+
 void	free_tab(char **tab)
 {
 	int	j;
