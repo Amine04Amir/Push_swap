@@ -6,7 +6,7 @@
 /*   By: mamir <mamir@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/21 18:49:18 by mamir             #+#    #+#             */
-/*   Updated: 2024/08/08 11:53:33 by mamir            ###   ########.fr       */
+/*   Updated: 2024/08/10 13:34:22 by mamir            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,15 +84,17 @@ char	**ft_copy(char **s, char *str, char c)
 		while (str[i] != c && str[i])
 			i++;
 	}
-	s[j] = NULL;
+	s[j] = NULL;	
 	return (s);
 }
 
-char	**ft_split(char *str, char c)
+char	**ft_split(char *str, char c, t_stack **a)
 {
 	char	**s;
 	int		wc;
 
+	if (!str || !*str)
+		ft_error(a);
 	wc = ft_count(str, c);
 	s = malloc(sizeof(char *) * (wc + 1));
 	if (!s)

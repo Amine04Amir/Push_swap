@@ -1,0 +1,51 @@
+#!/bin/bash
+GREEN='\033[0;32m'
+END='\033[0m'
+RED='\e[31m'
+
+if [[ $# -eq 1 && "$1" == "rm" ]];
+then
+    if ! [ -d "push_swap_tester" ];
+    then
+        echo -e "${RED}tester already removed !!!${END}"
+        exit 5
+    fi
+    rm -rf push_swap_tester
+    echo -e "${GREEN}tester removed successfully${END}"
+    exit 0
+fi
+
+read -p "enter numbers of tests: " loop_count
+read -p "enter stack size: " num
+
+if make -q clear;
+then
+    make clear
+else
+    make re
+    make clean
+fi
+
+rm -rf push_swap_tester
+
+git clone https://github.com/LeoFu9487/push_swap_tester.git
+
+cd push_swap_tester
+
+echo -e "${GREEN}\t\tSTARTING...${END}"
+
+sleep 1.3
+
+bash loop.sh $num $loop_count
+
+sleep 1
+
+echo -e "${GREEN}FINISH !!!${END}"
+
+echo -e "${GREEN}cleaning up...${END}"
+
+sleep 0.5 && cd ..
+
+rm -rf push_swap_tester
+
+make clean >/dev/null 

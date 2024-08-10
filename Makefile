@@ -7,16 +7,15 @@ SRC =	./src/commands/push.c ./src/commands/swap.c ./src/commands/rotate.c ./src/
 		./src/main/init_stack.c ./src/main/init_a.c ./src/main/init_b.c \
 		./src/main/sort_stacks.c \
 		
+OBJ = $(SRC:.c=.o)
 		
-CC = cc -fsanitize=address -g3
+CC = cc #-fsanitize=address -g3
 CFLAGS = -Werror -Wextra -Wall 
 
 all : $(NAME)
 
-OBJ = $(SRC:.c=.o)
-
 $(NAME) : $(OBJ)
-	$(CC) $(OBJ) -o $(NAME) 
+	$(CC) $(CFLAGS) $(OBJ) -o $(NAME) 
 
 %.o:%.c
 	$(CC) $(CFLAGS) -c $< -o $@
@@ -30,5 +29,3 @@ fclean: clean
 re: fclean all
 
 .SECONDARY: $(OBJ)
-
-.PHONY: all clean fclean re

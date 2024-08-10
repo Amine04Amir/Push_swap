@@ -6,12 +6,25 @@
 /*   By: mamir <mamir@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/26 16:45:32 by mamir             #+#    #+#             */
-/*   Updated: 2024/08/08 10:01:21 by mamir            ###   ########.fr       */
+/*   Updated: 2024/08/10 13:43:47 by mamir            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/push_swap.h"
 
+int is_empty(char *str)
+{
+	int i;
+
+	i = 0;
+	while (str[i])
+	{
+		if (str[i] != ' ')
+			return 0;
+		i++;
+	}
+	return 1;
+}
 void	free_tab(char **tab)
 {
 	int	j;
@@ -30,7 +43,9 @@ void	split_args(t_stack **a, int ac, char **av)
 	i = 1;
 	while (i < ac)
 	{
-		tab = ft_split(av[i], ' ');
+		if (is_empty(av[i]))
+			ft_error(a);
+		tab = ft_split(av[i], ' ', a);
 		init_stack_a(a, tab);
 		free_tab(tab);
 		i++;

@@ -6,7 +6,7 @@
 /*   By: mamir <mamir@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/21 18:49:28 by mamir             #+#    #+#             */
-/*   Updated: 2024/08/08 11:54:20 by mamir            ###   ########.fr       */
+/*   Updated: 2024/08/10 13:27:09 by mamir            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 # include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
+#include <string.h>
 
 typedef struct s_stack
 {
@@ -40,7 +41,7 @@ void				free_tab(char **tab);
 void				ft_error_tab(t_stack **stack, char **tab);
 void				free_split(char **str);
 /* *** stack / nodes  *** */
-char				**ft_split(char *str, char c);
+char				**ft_split(char *str, char c, t_stack **a);
 void				init_stack_a(t_stack **a, char **av);
 void				init_nodes_a(t_stack *a, t_stack *b);
 void				init_nodes_b(t_stack *a, t_stack *b);
