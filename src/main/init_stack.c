@@ -6,7 +6,7 @@
 /*   By: mamir <mamir@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/25 17:01:25 by mamir             #+#    #+#             */
-/*   Updated: 2024/08/08 15:55:50 by mamir            ###   ########.fr       */
+/*   Updated: 2024/08/10 21:05:51 by mamir            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ void	init_stack_a(t_stack **a, char **tab)
 	{
 		if (syntax_errors(tab[i]))
 			ft_error_tab(a, tab);
-		n = ft_atol(tab[i], a, tab);
+		n = ft_atoi(tab[i], a, tab);
 		if (ft_duplicates(*a, (int)n))
 			ft_error_tab(a, tab);
 		ft_append(a, n);

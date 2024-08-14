@@ -6,7 +6,7 @@
 /*   By: mamir <mamir@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/03 11:59:28 by mamir             #+#    #+#             */
-/*   Updated: 2024/08/06 10:08:32 by mamir            ###   ########.fr       */
+/*   Updated: 2024/08/11 10:44:17 by mamir            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,8 +62,8 @@ static void	set_target_a(t_stack *a, t_stack *b)
 
 static void	cost_analysis_a(t_stack *a, t_stack *b)
 {
-	int	len_a;
-	int	len_b;
+	int		len_a;
+	int		len_b;
 
 	len_a = stack_size(a);
 	len_b = stack_size(b);

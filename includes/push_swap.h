@@ -6,7 +6,7 @@
 /*   By: mamir <mamir@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/21 18:49:28 by mamir             #+#    #+#             */
-/*   Updated: 2024/08/10 18:38:10 by mamir            ###   ########.fr       */
+/*   Updated: 2024/08/10 21:05:17 by mamir            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,22 +33,16 @@ typedef struct s_stack
 }					t_stack;
 
 /*  *** errors *** */
-int					ft_duplicates(t_stack *a, int n);
 int					syntax_errors(const char *str);
-void				free_stack(t_stack **stack);
+int					ft_duplicates(t_stack *a, int n);
 void				ft_error(t_stack **stack);
-void				free_tab(char **tab);
 void				ft_error_tab(t_stack **stack, char **tab);
+void				free_tab(char **tab);
+void				free_stack(t_stack **stack);
 void				free_split(char **str);
-/* *** stack / nodes  *** */
-char				**ft_split(char *str, char c, t_stack **a);
-void				init_stack_a(t_stack **a, char **av);
-void				init_nodes_a(t_stack *a, t_stack *b);
-void				init_nodes_b(t_stack *a, t_stack *b);
-void				prep_for_push(t_stack **stack, t_stack *top_node,
-						char stack_name);
-void				min_on_top(t_stack **a);
 /* *** utils *** */
+char				**ft_split(char *str, char c, t_stack **a);
+int					ft_atoi(char *s, t_stack **stack, char **tab);
 t_stack				*find_max(t_stack *stack);
 t_stack				*find_min(t_stack *stack);
 t_stack				*find_last(t_stack *list);
@@ -56,21 +50,29 @@ t_stack				*get_cheapest(t_stack *stack);
 void				current_index(t_stack *stack);
 int					stack_size(t_stack *list);
 bool				stack_sorted(t_stack *stack);
-long				ft_atol(char *s, t_stack **stack, char **tab);
+void				prep_for_push(t_stack **stack, t_stack *top_node,
+						char stack_name);
 /* *** commands *** */
 void				sa(t_stack **stack_a);
 void				sb(t_stack **stack_b);
 void				ss(t_stack **stack_a, t_stack **stack_b);
+
 void				pa(t_stack **stack_a, t_stack **stack_b);
 void				pb(t_stack **stack_a, t_stack **stack_b);
+
 void				ra(t_stack **stack_a);
 void				rb(t_stack **stack_b);
 void				rr(t_stack **stack_a, t_stack **stack_b);
+
 void				rra(t_stack **stack_a);
 void				rrb(t_stack **stack_b);
 void				rrr(t_stack **stack_a, t_stack **stack_b);
 /* *** Algo *** */
-void				sort_three(t_stack **stack);
+void				init_stack_a(t_stack **a, char **av);
 void				sort_stacks(t_stack **a, t_stack **b);
+void				init_nodes_a(t_stack *a, t_stack *b);
+void				sort_three(t_stack **stack);
+void				init_nodes_b(t_stack *a, t_stack *b);
+void				min_on_top(t_stack **a);
 
 #endif

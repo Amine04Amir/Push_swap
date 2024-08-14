@@ -6,7 +6,7 @@
 /*   By: mamir <mamir@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/21 18:49:34 by mamir             #+#    #+#             */
-/*   Updated: 2024/08/10 18:38:01 by mamir            ###   ########.fr       */
+/*   Updated: 2024/08/10 20:58:47 by mamir            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,22 +27,23 @@ int	ft_duplicates(t_stack *a, int n)
 
 int	syntax_errors(const char *str)
 {
+	if (!str)
+		return (1);
+	while (*str == ' ' || *str == '\t')
+		str++;
 	if (*str == '\0')
-		return (1);
-	if (!(*str == '+' || *str == '-' || (*str >= '0' && *str <= '9')))
-		return (1);
-	if ((*str == '+' || str[1] == '-') && !(str[1] >= '0' && *str <= '9'))
 		return (1);
 	if (*str == '+' || *str == '-')
 		str++;
-	while (str)
-	{
-		if (!(*str >= '0' && *str <= '9'))
-			return (1);
+	if (*str < '0' || *str > '9')
+		return (1);
+	while (*str >= '0' && *str <= '9')
 		str++;
-	}
-	return (0);
+	while (*str == ' ' || *str == '\t')
+		str++;
+	return (*str != '\0');
 }
+
 void	free_stack(t_stack **stack)
 {
 	t_stack	*tmp;
